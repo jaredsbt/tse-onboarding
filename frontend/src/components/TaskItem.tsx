@@ -22,6 +22,11 @@ export function TaskItem({ task: initialTask }: TaskItemProps) {
       setLoading(false);
     });
   };
+
+  if (task.isChecked) {
+    styles.textContainer += ` ${styles.checked}`;
+  }
+
   return (
     <div className={styles.item}>
       {/* render CheckButton here */}

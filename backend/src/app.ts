@@ -13,7 +13,6 @@ const app = express();
 
 // initializes Express to accept JSON in the request/response body
 app.use(express.json());
-app.use("/api/tasks", tasksRoutes);
 
 // sets the "Access-Control-Allow-Origin" header on all responses to allow
 // requests from the frontend, which has a different origin - see the following
@@ -27,6 +26,7 @@ app.use(
 );
 
 app.use("/api/task", taskRoutes);
+app.use("/api/tasks", tasksRoutes);
 
 /**
  * Error handler; all errors thrown by server are handled here.
