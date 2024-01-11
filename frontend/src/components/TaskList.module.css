@@ -1,0 +1,17 @@
+.listTasks {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.itemTitles {
+    font: var(--font-label);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.listOuter {
+    margin-top: 3rem;
+}

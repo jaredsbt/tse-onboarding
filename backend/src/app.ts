@@ -7,11 +7,13 @@ import express, { NextFunction, Request, Response } from "express";
 import cors from "cors";
 import { isHttpError } from "http-errors";
 import taskRoutes from "src/routes/task";
+import tasksRoutes from "src/routes/tasks";
 
 const app = express();
 
 // initializes Express to accept JSON in the request/response body
 app.use(express.json());
+app.use("/api/tasks", tasksRoutes);
 
 // sets the "Access-Control-Allow-Origin" header on all responses to allow
 // requests from the frontend, which has a different origin - see the following
