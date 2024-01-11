@@ -98,7 +98,7 @@ export async function getAllTasks(): Promise<APIResult<Task[]>> {
     const response = await get(`/api/tasks/`);
     const jsonL = (await response.json()) as TaskJSON[];
 
-    const tasks = jsonL.map(json => parseTask(json));
+    const tasks = jsonL.map((json) => parseTask(json));
 
     // const tasks: Task[] = [];
 
@@ -106,8 +106,18 @@ export async function getAllTasks(): Promise<APIResult<Task[]>> {
     //   const task = parseTask(element);
     //   tasks.push(task);
     // }
-      
+
     return { success: true, data: tasks };
+  } catch (error) {
+    return handleAPIError(error);
+  }
+}
+
+export async function updateTask(task: UpdateTaskRequest): Promise<APIResult<Task>> {
+  try {
+    const response = await post(`/api/task/${task._id}`, task);
+    const json = (await response.json()) as TaskJSON;
+    return { success: true, data: parseTask(json) };
   } catch (error) {
     return handleAPIError(error);
   }
